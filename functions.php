@@ -93,3 +93,12 @@ function divi_child_disable_emojis_remove_dns_prefetch( $urls, $relation_type ) 
   }
   return $urls;
 }
+
+/**
+ * Remove DNS Prefetching for Wordpress
+ * https://github.com/mirkoschubert/divi-child
+ */
+function divi_child_remove_dns_prefetch() {
+  remove_action('wp_head', 'wp_resource_hints', 2);
+}
+add_action( 'init', 'divi_child_remove_dns_prefetch');
