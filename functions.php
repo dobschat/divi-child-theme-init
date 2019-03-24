@@ -26,3 +26,13 @@ function divi_child_body_class( $classes ) {
   return $classes;
 }
 add_action( 'body_class', 'divi_child_body_class' );
+
+/**
+ * Makes every comment and comment author link truely external (except 'respond')
+ * https://github.com/mirkoschubert/divi-child
+ */
+function divi_child_external_comment_links( $content ){
+  return str_replace( "<a ", "<a target='_blank' ", $content );
+}
+add_filter( "comment_text", "divi_child_external_comment_links" );
+add_filter( "get_comment_author_link", "divi_child_external_comment_links" );
