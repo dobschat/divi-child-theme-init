@@ -17,4 +17,12 @@ function divi_child_remove_support_center() {
 }
 add_action( 'wp_enqueue_scripts', 'divi_child_remove_support_center', 99999 );
 
-?>
+/**
+ * Custom Body Class for Child Theme
+ * https://github.com/mirkoschubert/divi-child
+ */
+function divi_child_body_class( $classes ) {
+  $classes[] = 'child';
+  return $classes;
+}
+add_action( 'body_class', 'divi_child_body_class' );
