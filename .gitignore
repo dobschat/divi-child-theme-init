@@ -32,6 +32,6 @@ bower_components
 node_modules
 
 # Dev Purpose
-*.html
-*.css
-*.map
+# *.html
+# *.css
+# *.map
