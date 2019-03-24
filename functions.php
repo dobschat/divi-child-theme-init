@@ -36,3 +36,12 @@ function divi_child_external_comment_links( $content ){
 }
 add_filter( "comment_text", "divi_child_external_comment_links" );
 add_filter( "get_comment_author_link", "divi_child_external_comment_links" );
+
+/**
+ * Removes IP addresses from comments (old entries have to be deleted by hand)
+ * https://github.com/mirkoschubert/divi-child
+ */
+function divi_child_remove_comments_ip( $comment_author_ip ) {
+  return '';
+}
+add_filter( 'pre_comment_user_ip', 'divi_child_remove_comments_ip' );
